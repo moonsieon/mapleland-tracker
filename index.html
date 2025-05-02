@@ -59,6 +59,12 @@
   <label>종료 경험치</label>
   <input type="number" id="endExp" placeholder="예: 1220000000" />
 
+  <label>시작 레벨</label>
+  <input type="number" id="startLevel" placeholder="예: 50" />
+
+  <label>종료 레벨</label>
+  <input type="number" id="endLevel" placeholder="예: 52" />
+
   <label>시작 메소</label>
   <input type="number" id="startMesos" placeholder="예: 400000000" />
 
@@ -76,11 +82,13 @@
     function calculate() {
       const startExp = parseInt(document.getElementById('startExp').value);
       const endExp = parseInt(document.getElementById('endExp').value);
+      const startLevel = parseInt(document.getElementById('startLevel').value);
+      const endLevel = parseInt(document.getElementById('endLevel').value);
       const startMesos = parseInt(document.getElementById('startMesos').value);
       const endMesos = parseInt(document.getElementById('endMesos').value);
       const duration = parseInt(document.getElementById('duration').value);
 
-      if (isNaN(startExp) || isNaN(endExp) || isNaN(startMesos) || isNaN(endMesos) || isNaN(duration) || duration <= 0) {
+      if (isNaN(startExp) || isNaN(endExp) || isNaN(startLevel) || isNaN(endLevel) || isNaN(startMesos) || isNaN(endMesos) || isNaN(duration) || duration <= 0) {
         document.getElementById('result').innerText = '모든 값을 올바르게 입력해 주세요.';
         return;
       }
@@ -92,7 +100,9 @@
 
       document.getElementById('result').innerHTML = `
         ✅ 총 획득 경험치: ${gainExp.toLocaleString()}<br/>
-        ✅ 시간당 경험치: ${parseInt(expPerHour).toLocaleString()}<br/><br/>
+        ✅ 시간당 경험치: ${parseInt(expPerHour).toLocaleString()}<br/>
+        ✅ 시작 레벨: ${startLevel}<br/>
+        ✅ 종료 레벨: ${endLevel}<br/><br/>
         💰 총 획득 메소: ${gainMesos.toLocaleString()}<br/>
         💰 시간당 메소: ${parseInt(mesosPerHour).toLocaleString()}<br/>
       `;
